@@ -54,7 +54,7 @@ class SearchActivity : Activity(), EntryView {
     actionBar?.setHomeAsUpIndicator(R.drawable.ic_home)
     actionBar?.setDisplayHomeAsUpEnabled(true)
 
-    var results_rv = LinearLayoutManager(this)
+    results_rv.layoutManager = LinearLayoutManager(this)
 
     presenter.setView(this)
 
@@ -113,7 +113,7 @@ class SearchActivity : Activity(), EntryView {
 
   override fun displayEntries(results: List<Entry>) {
     results_rv.post {
-      var results_rv = EntryAdapter(this, results)
+       results_rv.adapter = EntryAdapter(this, results)
     }
   }
 
